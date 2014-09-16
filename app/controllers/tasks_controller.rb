@@ -17,10 +17,12 @@ class TasksController < ApplicationController
   def update
     task = Task.find(params[:id])
     task.update_attributes tasks_params
-    render :nothing => true , :status => 204
+    render :json => task , :status => 200
   end
 
   def destroy
+    Task.find(params[:id]).destroy!
+    render :nothing => true , :status => 204 # 204 means no contents
   end
 
   private
