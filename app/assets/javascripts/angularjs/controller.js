@@ -13,7 +13,7 @@ tasksApp.controller("tasksCtrl" , [ "$scope" , "$http" , function($scope , $http
         var task_to_be_removed = $scope.tasks.splice(index , 1)[0];
         $http({
             method: "DELETE",
-            url: "api/tasks/" + task_to_be_removed.id + ".json?authenticity_token=" +  $("meta[name=\"csrf-token\"]").attr("content")
+            url: "api/tasks/" + task_to_be_removed.id + ".json"
         }).
         success(function(data){
             console.log(data);
@@ -32,15 +32,20 @@ controller("addTaskCtrl" , [ "$scope" , "$http" , "$window" , function($scope , 
     $scope.submit = function(){
         console.log("submitting form");
         var new_task = {
-            "task" : $scope.new_task,
-            "authenticity_token": $("meta[name=\"csrf-token\"]").attr("content")
+            "task" : $scope.new_task
         };
         $http.post("/api/tasks.json" , new_task).
-        success(function(data){
+        success(function(data , a , b, c){
             $scope.notification = "created task with the credentials " + data;
+            console.log(a);
+            console.log(b);
+            console.log(c);
         }).
-        error(function(data){
-
+        error(function(data , a , b , c){
+            console.log(a);
+            console.log(b);
+            console.log(c);
+            console.log(data);
         });
     }
 }])
