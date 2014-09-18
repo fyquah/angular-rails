@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="tasksApp">
 <head>
-  <title>AngularRails</title>
+  <title>AngularRailsSample</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<a href="#/">View all tasks</a>
+<a href="#/tasks/new">Add new task</a>
 <%= yield %>
 
 </body>

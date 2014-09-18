@@ -1,0 +1,6 @@
+<div ng-repeat="task in tasks">
+    <p><strong>{{ $index + 1 }}</strong> <em>{{ task.name }}</em></p>
+    <p ng-bind="task.description"></p>
+    <a ng-href="#/tasks/{{ task.id }}">Edit</a>
+    <button ng-click="delete($index)">Delete</button>
+</div>

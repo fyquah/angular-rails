@@ -1,0 +1,7 @@
+<h4>Your Task</h4>
+<div ng-show="notification"></div>
+<form ng-submit="update()">
+    <input ng-model="task.name" placeholder="name" />
+    <textarea ng-model="task.description" placeholder="description" rows="4"></textarea>
+    <input type="submit" value="submit" />
+</form>

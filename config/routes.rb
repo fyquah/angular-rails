@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :tasks , :defaults => { :format => :json } , :only => [ :index , :show , :create , :update , :destroy ]
+  namespace :api , :defaults => { :format => :json }  do
+    resources :tasks , :only => [ :index , :show , :create , :update , :destroy ]
+  end
+
+  root "templates#index"
+  get "templates/:path.html" =>  'templates#template' , :constraints => { :path => /.+/ }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,4 +1,4 @@
-class TasksController < ApplicationController
+class Api::TasksController < ApplicationController
   def index
     tasks = Task.all
     render :json => tasks , :status => 200
@@ -10,7 +10,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    task = task.create! tasks_params
+    task = Task.create! tasks_params
     render :json => task , :status => 201
   end
 
@@ -27,6 +27,6 @@ class TasksController < ApplicationController
 
   private
     def tasks_params
-      params.require(:tasks).permit :name , :description
+      params.require(:task).permit :name , :description
     end
 end

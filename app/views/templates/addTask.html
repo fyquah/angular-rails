@@ -1,0 +1,9 @@
+<h4>Your New Task</h4>
+<p> Name : {{ new_task.name }}</p>
+<p> Description : {{ new_task.description }}</p>
+<div ng-show="notification"></div>
+<form ng-submit="submit()">
+    <input ng-model="new_task.name" placeholder="name" />
+    <textarea ng-model="new_task.description" placeholder="description" rows="4"></textarea>
+    <input type="submit" value="submit" />
+</form>
