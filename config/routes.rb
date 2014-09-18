@@ -3,8 +3,9 @@ Rails.application.routes.draw do
     resources :tasks , :only => [ :index , :show , :create , :update , :destroy ]
   end
 
+  # this redirects all the reqest to be served by the same stuff
   root "templates#index"
-  get "templates/:path.html" =>  'templates#template' , :constraints => { :path => /.+/ }
+  get "templates/:controller/:action.html" =>  'templates#template' , :constraints => { :action => /.+/ , :controller => /.+/ }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
