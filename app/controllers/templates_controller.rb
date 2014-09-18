@@ -1,6 +1,6 @@
 class TemplatesController < ApplicationController
   def template
-    render params[:path] , :layout => false
+    render "templates/#{params[:path]}" , :layout => false
   end
 
   def index

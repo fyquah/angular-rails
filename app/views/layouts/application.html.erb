@@ -7,8 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<!-- the mini nav bar -->
 <a href="#/">View all tasks</a>
 <a href="#/tasks/new">Add new task</a>
+<div>
+    <h2>This is the notification area</h2>
+    <div class="alert alert-danger" ng-show="alert.danger.length">
+        <p ng-repeat="msg in alert.danger track by $index">{{ msg }}</p>
+    </div>
+    <div class="alert alert-info" ng-show="alert.info.length">
+        <p ng-repeat="msg in alert.info track by $index">{{ msg }}</p>
+    </div>
+    <div class="alert alert-success" ng-show="alert.success.length">
+        <p ng-repeat="msg in alert.success track by $index">{{ msg }}</p>
+    </div>
+</div>
 <%= yield %>
 
 </body>

@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  # note that defalt format is JSON
   namespace :api , :defaults => { :format => :json }  do
     resources :tasks , :only => [ :index , :show , :create , :update , :destroy ]
   end
 
   # this redirects all the reqest to be served by the same stuff
   root "templates#index"
-  get "templates/:controller/:action.html" =>  'templates#template' , :constraints => { :action => /.+/ , :controller => /.+/ }
+  get "templates/:path" =>  'templates#template' , :constraints => { :path => /.+/ }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
